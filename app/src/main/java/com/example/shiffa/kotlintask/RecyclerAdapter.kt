@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-class RecyclerAdapter( var myList: List<CarModel>) : RecyclerView.Adapter<RecyclerAdapter.ModelHolder>()  {
+class RecyclerAdapter( var myList: List<Car>) : RecyclerView.Adapter<RecyclerAdapter.ModelHolder>()  {
 
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): RecyclerAdapter.ModelHolder {
@@ -19,7 +19,7 @@ class RecyclerAdapter( var myList: List<CarModel>) : RecyclerView.Adapter<Recycl
     override fun getItemCount(): Int= myList.size
 
     override fun onBindViewHolder(p0: RecyclerAdapter.ModelHolder, p1: Int) {
-        val modelInfo: CarModel=myList[p1]
+        val modelInfo: Car=myList[p1]
         p0.bind(modelInfo)
     }
     class ModelHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
@@ -43,13 +43,13 @@ class RecyclerAdapter( var myList: List<CarModel>) : RecyclerView.Adapter<Recycl
             mRearCamera = itemView.findViewById(R.id.itemRear)
         }
 
-        fun bind(myList: CarModel) {
+        fun bind(myList: Car) {
            mModel?.text = myList.name
             mYear?.text = myList.release_year.toString()
             mPrice?.text = "$" + myList.price.toString()
-            mHorsePower?.text = myList.horsepower.toString()+ "hp"
-            mTrailer?.text = myList.trailer.toString() + "lbs"
-            mRearCamera?.text = myList.rare_camera.toString()
+           // mHorsePower?.text = myList.horsepower.toString()+ "hp"
+          //  mTrailer?.text = myList.trailer.toString() + "lbs"
+          //-  mRearCamera?.text = myList.rare_camera.toString()
         }
 
     }
